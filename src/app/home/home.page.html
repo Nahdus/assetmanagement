@@ -1,14 +1,21 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Ionic Notification
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-button expand="block" (click)="scheduleNotification()">Shedule notification</ion-button>
+  <ion-button expand="block" (click)="recurringNotification()">Recurring notification</ion-button>
+  <ion-button expand="block" (click)="repatingDaily()">Repeat daily</ion-button>
+  <ion-button expand="block" (click)="getAll()">Get all</ion-button>
+  <ion-list>
+    <ion-item *ngFor="let n of schedule">
+      <ion-label text-wrap></ion-label>
+      {{n.id}}-{{n.title}}
+      <p>Trigger: {{n.trigger}}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>
